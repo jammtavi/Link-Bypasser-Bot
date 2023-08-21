@@ -6,15 +6,15 @@
     "repository": "https://github.com/bipinkrish/Link-Bypasser-Bot",
     "env": {
         "BOT_TOKEN": {
-            "description": "Your bot token.",
+            "description": "6632963920:AAFo8lCD9tWCeM2DqeHBQD3FY-rJp5Euh0c",
             "required": true
         },
         "API_ID": {
-            "description": "Get this value from https://my.telegram.org",
+            "description": "10785979",
             "required": true
         },
         "API_HASH": {
-            "description": "Get this value from https://my.telegram.org",
+            "description": "5c7ed6d8b209778cfec4e2e466d0ae29",
             "required": true
         },
         "GD_CRYPT": {
