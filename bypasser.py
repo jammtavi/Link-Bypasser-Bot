@@ -144,7 +144,7 @@ def scrapeIndex(url, username="none", password="none"):
 
 def tnlink(url):
     client = requests.session()
-    DOMAIN = "https://go.tnlinks.in/"
+    DOMAIN = "https://tnlinks.in/"
     url = url[:-1] if url[-1] == '/' else url
     code = url.split("/")[-1]
     final_url = f"{DOMAIN}/{code}"
@@ -1952,11 +1952,11 @@ def mdiskpro(url):
 
 def tnshort(url):
     client = cloudscraper.create_scraper(allow_brotli=False)
-    DOMAIN = "https://page.tnlink.in/"
+    DOMAIN = "https://"
     url = url[:-1] if url[-1] == '/' else url
     code = url.split("/")[-1]
     final_url = f"{DOMAIN}/{code}"
-    ref = "https://business.usanewstoday.club/"
+    ref = "https://financeyogi.net/"
     h = {"referer": ref}
     resp = client.get(final_url,headers=h)
     soup = BeautifulSoup(resp.content, "html.parser")
