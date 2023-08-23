@@ -1804,7 +1804,7 @@ def earnl(url):
 
 def moneykamalo(url):
     client = requests.session()
-    DOMAIN = "https://earn.moneykamalo.com/"
+    DOMAIN = "https://go.moneykamalo.com/"
     url = url[:-1] if url[-1] == '/' else url
     code = url.split("/")[-1]
     final_url = f"{DOMAIN}/{code}"
