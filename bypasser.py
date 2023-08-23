@@ -2191,7 +2191,7 @@ def shortners(url):
         return linkvertise(url)
         
     # rocklinks
-    elif "https://go.rocklinks.net/" in url or "https://insurance.techymedies.com/" in url:
+    elif "https://insurance.techymedies.com/" in url:
         print("entered rocklinks: ",url)
         return rocklinks(url)
         
