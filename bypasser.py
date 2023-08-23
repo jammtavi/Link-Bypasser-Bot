@@ -2256,7 +2256,7 @@ def shortners(url):
         return earnl(url)
 
     # moneykamalo
-    elif "https://earn.moneykamalo.com/" in url:
+    elif "https://go.moneykamalo.com/" in url:
         print("entered moneykamalo: ",url)
         return moneykamalo(url)
 	    
