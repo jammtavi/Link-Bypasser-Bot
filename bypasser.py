@@ -237,7 +237,7 @@ def rocklinks(url):
     if 'rocklinks.net' in url:
         DOMAIN = "https://disheye.com/"
     else:
-        DOMAIN = "https://insurance.techymedies.com/"
+        DOMAIN = "https://go.rocklinks.net/"
 
     url = url[:-1] if url[-1] == '/' else url
 
