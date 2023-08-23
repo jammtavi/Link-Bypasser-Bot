@@ -2228,7 +2228,7 @@ def shortners(url):
         return adrinolink(url)
     
     # tnlink
-    elif "https://link.tnlink.in/" in url:
+    elif "https://link.tnlink.in/" in url or "https://tnlinks.in/" in url:
         print("entered tnlink: ",url)
         return tnlink(url)
 
