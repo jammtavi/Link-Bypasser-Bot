@@ -234,35 +234,22 @@ def psa_bypasser(psa_url):
 
 def rocklinks(url):
     client = cloudscraper.create_scraper(allow_brotli=False)
-    if 'rocklinks.net' in url:
-        DOMAIN = "https://blog.disheye.com"
-    else:
-        DOMAIN = "https://rocklinks.net"
-
+    DOMAIN = "https://insurance.techymedies.com/"
     url = url[:-1] if url[-1] == '/' else url
-
     code = url.split("/")[-1]
-    if 'rocklinks.net' in url:
-        final_url = f"{DOMAIN}/{code}?quelle=" 
-    else:
-        final_url = f"{DOMAIN}/{code}"
-
-    resp = client.get(final_url)
+    final_url = f"{DOMAIN}/{code}"
+    ref = "https://reminimod.co"
+    h = {"referer": ref}
+    resp = client.get(final_url,headers=h)
     soup = BeautifulSoup(resp.content, "html.parser")
-    
-    try: inputs = soup.find(id="go-link").find_all(name="input")
-    except: return "Incorrect Link"
-    
+    inputs = soup.find_all("input")
     data = { input.get('name'): input.get('value') for input in inputs }
-
+    #print(data)
     h = { "x-requested-with": "XMLHttpRequest" }
-    
-    time.sleep(10)
+    time.sleep(15)
     r = client.post(f"{DOMAIN}/links/go", data=data, headers=h)
-    try:
-        return r.json()['url']
+    try: return r.json()['url']
     except: return "Something went wrong :("
-
 
 ################################################
 # igg games
@@ -2204,7 +2191,7 @@ def shortners(url):
         return linkvertise(url)
         
     # rocklinks
-    elif "https://rocklinks.net/" in url or "https://go.rocklinks.net/" in url:
+    elif "https://rocklinks.net/" in url or "https://insurance.techymedies.com/" in url:
         print("entered rocklinks: ",url)
         return rocklinks(url)
         
