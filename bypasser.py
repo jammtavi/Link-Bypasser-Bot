@@ -235,9 +235,9 @@ def psa_bypasser(psa_url):
 def rocklinks(url):
     client = cloudscraper.create_scraper(allow_brotli=False)
     if 'rocklinks.net' in url:
-        DOMAIN = "https://blog.disheye.com"
+        DOMAIN = "https://disheye.com/"
     else:
-        DOMAIN = "https://rocklinks.net"
+        DOMAIN = "https://insurance.techymedies.com/"
 
     url = url[:-1] if url[-1] == '/' else url
 
