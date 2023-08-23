@@ -2032,7 +2032,28 @@ def bitly_tinyurl(url: str) -> str:
 	response = requests.get(url).url
 	try: return response
 	except: return "Something went wrong :("
+##################################################################################################### 
+# shrinkme
 
+def shrinkme(url):
+    client = requests.session()
+    DOMAIN = "https://en.shrinke.me"
+    url = url[:-1] if url[-1] == '/' else url
+    code = url.split("/")[-1]
+    final_url = f"{DOMAIN}/{code}"
+    ref = "https://mrproblogger.com/"
+    h = {"referer": ref}
+    resp = client.get(final_url,headers=h)
+    soup = BeautifulSoup(resp.content, "html.parser")
+    inputs = soup.find_all("input")
+    data = { input.get('name'): input.get('value') for input in inputs }
+    h = { "x-requested-with": "XMLHttpRequest" }
+    time.sleep(5)
+    r = client.post(f"{DOMAIN}/links/go", data=data, headers=h)
+    try:
+        return r.json()['url']
+    except: return "Something went wrong :("
+	    
 ##################################################################################################### 
 # thinfi
 
@@ -2301,7 +2322,11 @@ def shortners(url):
     elif "bit.ly" in url or "tinyurl.com" in url:
         print("entered bitly_tinyurl: ",url)
         return bitly_tinyurl(url)
-
+    
+	# shrinkme
+    elif "en.shrink.me" in url or "shrinke.me" in url:
+        print("entered shrinkme: ",url)
+        return shrinkme(url)
     # pdisk
     elif "pdisk.pro" in url:
         print("entered pdisk: ",url)
