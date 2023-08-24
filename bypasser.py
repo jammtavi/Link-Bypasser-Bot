@@ -2023,8 +2023,8 @@ def bitly_tinyurl(url: str) -> str:
 # shrinkme
 
 def shrinkme(url):
-    client = requests.session()
-    DOMAIN = "https://en.shrinke.me"
+    client = cloudscraper.create_scraper(allow_brotli=False)
+    DOMAIN = "https://en.shrinke.me/"
     url = url[:-1] if url[-1] == '/' else url
     code = url.split("/")[-1]
     final_url = f"{DOMAIN}/{code}"
@@ -2034,11 +2034,11 @@ def shrinkme(url):
     soup = BeautifulSoup(resp.content, "html.parser")
     inputs = soup.find_all("input")
     data = { input.get('name'): input.get('value') for input in inputs }
+    #print(data)
     h = { "x-requested-with": "XMLHttpRequest" }
-    time.sleep(5)
+    time.sleep(15)
     r = client.post(f"{DOMAIN}/links/go", data=data, headers=h)
-    try:
-        return r.json()['url']
+    try: return r.json()['url']
     except: return "Something went wrong :("
 	    
 ##################################################################################################### 
@@ -2311,7 +2311,7 @@ def shortners(url):
         return bitly_tinyurl(url)
     
 	# shrinkme
-    elif "en.shrink.me" in url or "shrinke.me" in url:
+    elif "https://en.shrinke.me/" in url or "shrinke.me" in url:
         print("entered shrinkme: ",url)
         return shrinkme(url)
     # pdisk
